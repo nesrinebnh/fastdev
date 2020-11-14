@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>NoisyDataset (2)</title>
+<title>NoisyDataset (3)</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -15279,10 +15279,10 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;market_segment&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;hotel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -15295,14 +15295,13 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[61]:</div>
+    <div class="prompt output_prompt">Out[75]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>array([&#39;online ta&#39;, &#39;corporate&#39;, &#39;direct&#39;, &#39;groups&#39;, &#39;offline ta/to&#39;,
-       &#39;complementary&#39;], dtype=object)</pre>
+<pre>array([&#39;resort hotel&#39;, &#39;city hotel&#39;], dtype=object)</pre>
 </div>
 
 </div>
@@ -16346,12 +16345,21 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Some values they are supposed to be of type int but they are of type float, I will convert them</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_week_number&#39;</span><span class="p">,</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_year&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dtypes</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_year&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_week_nights&#39;</span><span class="p">,</span>
+         <span class="s1">&#39;adults&#39;</span><span class="p">,</span> <span class="s1">&#39;is_repeated_guest&#39;</span><span class="p">,</span><span class="s1">&#39;previous_cancellations&#39;</span><span class="p">,</span><span class="s1">&#39;previous_bookings_not_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;adr&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 
     </div>
@@ -16364,22 +16372,385 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[36]:</div>
+    <div class="prompt output_prompt">Out[84]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>children                    float64
-company                     float64
-agent                       float64
-arrival_date_week_number    float64
-is_canceled                 float64
+<pre>children                            int64
+company                             int64
+lead_time                         float64
+agent                               int64
+is_canceled                         int64
+arrival_date_year                   int64
+stays_in_weekend_nights             int64
+stays_in_week_nights                int64
+adults                              int64
+is_repeated_guest                   int64
+previous_cancellations              int64
+previous_bookings_not_canceled      int64
+adr                                 int64
 dtype: object</pre>
 </div>
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_year&#39;</span><span class="p">,</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_week_nights&#39;</span><span class="p">,</span><span class="s1">&#39;adults&#39;</span><span class="p">,</span> <span class="s1">&#39;is_repeated_guest&#39;</span><span class="p">,</span><span class="s1">&#39;previous_cancellations&#39;</span><span class="p">,</span><span class="s1">&#39;previous_bookings_not_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;adr&#39;</span><span class="p">]]</span><span class="o">=</span> <span class="n">dataset</span><span class="p">[[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_year&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">,</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_week_nights&#39;</span><span class="p">,</span><span class="s1">&#39;adults&#39;</span><span class="p">,</span> <span class="s1">&#39;is_repeated_guest&#39;</span><span class="p">,</span><span class="s1">&#39;previous_cancellations&#39;</span><span class="p">,</span><span class="s1">&#39;previous_bookings_not_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;adr&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>check the types onces again</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[86]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>hotel                                     object
+is_canceled                                int64
+lead_time                                  int64
+arrival_date_year                          int64
+arrival_date_month                        object
+stays_in_weekend_nights                    int64
+stays_in_week_nights                       int64
+adults                                     int64
+children                                   int64
+meal                                      object
+country                                   object
+market_segment                            object
+distribution_channel                      object
+is_repeated_guest                          int64
+previous_cancellations                     int64
+previous_bookings_not_canceled             int64
+reserved_room_type                        object
+assigned_room_type                        object
+booking_changes                            int64
+deposit_type                              object
+agent                                      int64
+company                                    int64
+customer_type                             object
+adr                                        int64
+required_car_parking_spaces                int64
+total_of_special_requests                  int64
+reservation_status                        object
+reservation_status_date           datetime64[ns]
+arrival_date_day_of_month                  int64
+arrival_date_week_number                   int64
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>avr: Average Daily Rate as defined by dividing the sum of all lodging transactions by the total number of staying nights</p>
+<p>If the avr = 0 then this record is useless</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">adr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[91]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(3, 30)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>There are 3 records matching this condition, I will delete them</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">adr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[94]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([&#39;prt&#39;, &#39;aut&#39;, &#39;esp&#39;, &#39;ita&#39;, &#39;fra&#39;, &#39;deu&#39;, &#39;bel&#39;, &#39;cze&#39;, &#39;gbr&#39;,
+       &#39;usa&#39;, &#39;mex&#39;, &#39;che&#39;, &#39;bgr&#39;, &#39;nld&#39;, &#39;chn&#39;, &#39;rou&#39;, &#39;irl&#39;],
+      dtype=object)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>the country codes are correct</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[98]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([  6,  24,  33,  34,  27,  35,  36,  28,  17,  37,   0,  38,  30,
+        32,  40,  41,  21,   3,   2,  15,   7, 364, 114,   5,  18,  12,
+        11,  23,  31,  39,  14,  19,  25,   1,   8,  10,   4,   9, 154,
+        70, 228, 222, 151, 131, 256, 246,  20,  13, 210, 191])</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[102]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;market_segment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[102]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([&#39;online ta&#39;, &#39;corporate&#39;, &#39;direct&#39;, &#39;groups&#39;, &#39;offline ta/to&#39;],
+      dtype=object)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[(</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_week_nights</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_weekend_nights</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[107]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(4, 30)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>if the stays in week nights and weekend nights &gt;0 but the reservation is cancelled or no-show, it is not a proper value if the reservation is cancelled, it means the client did,'t stay in the hotel</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[111]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[((</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_week_nights</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_weekend_nights</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">((</span><span class="n">dataset</span><span class="o">.</span><span class="n">reservation_status</span><span class="o">==</span><span class="s1">&#39;canceled&#39;</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">reservation_status</span><span class="o">==</span><span class="s1">&#39;no-show&#39;</span><span class="p">))]</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[111]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(16, 30)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>we have 16 record, I will delete them</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[112]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dataset</span><span class="p">[((</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_week_nights</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_weekend_nights</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">((</span><span class="n">dataset</span><span class="o">.</span><span class="n">reservation_status</span><span class="o">==</span><span class="s1">&#39;canceled&#39;</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">reservation_status</span><span class="o">==</span><span class="s1">&#39;no-show&#39;</span><span class="p">))]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
