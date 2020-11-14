@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>NoisyDataset (3)</title>
+<title>NoisyDataset (4)</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13083,7 +13083,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[113]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
@@ -13104,7 +13104,7 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Mounted at /content/drive/
+<pre>Drive already mounted at /content/drive/; to attempt to forcibly remount, call drive.mount(&#34;/content/drive/&#34;, force_remount=True).
 </pre>
 </div>
 </div>
@@ -13122,7 +13122,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[163]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13131,6 +13131,7 @@ div#notebook {
 <span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
 <span class="kn">from</span> <span class="nn">sklearn.tree</span> <span class="kn">import</span> <span class="n">DecisionTreeClassifier</span>
 <span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
 </pre></div>
 
     </div>
@@ -13147,7 +13148,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="prompt input_prompt">In&nbsp;[115]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
@@ -13160,7 +13161,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="prompt input_prompt">In&nbsp;[116]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/My Drive/Colab Notebooks/hotel_bookings.csv&#39;</span>
@@ -13175,7 +13176,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[41]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -13191,7 +13192,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[41]:</div>
+    <div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 
@@ -13962,7 +13963,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="prompt input_prompt">In&nbsp;[117]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">shape</span>
@@ -13978,7 +13979,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[42]:</div>
+    <div class="prompt output_prompt">Out[117]:</div>
 
 
 
@@ -14002,7 +14003,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="prompt input_prompt">In&nbsp;[118]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
@@ -14015,7 +14016,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="prompt input_prompt">In&nbsp;[119]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">shape</span>
@@ -14031,7 +14032,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[44]:</div>
+    <div class="prompt output_prompt">Out[119]:</div>
 
 
 
@@ -14072,7 +14073,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="prompt input_prompt">In&nbsp;[120]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">make_int</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
@@ -14089,7 +14090,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="prompt input_prompt">In&nbsp;[121]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># apply make_int function to the entire series using map</span>
@@ -14140,7 +14141,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[47]:</div>
+<div class="prompt input_prompt">In&nbsp;[122]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
@@ -14156,7 +14157,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[47]:</div>
+    <div class="prompt output_prompt">Out[122]:</div>
 
 
 
@@ -14925,6 +14926,39 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[126]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[(</span><span class="n">dataset</span><span class="o">.</span><span class="n">meal</span> <span class="o">==</span> <span class="s1">&#39;SC&#39;</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">meal</span> <span class="o">==</span> <span class="s1">&#39;Undefined&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
+<span class="n">dataset</span><span class="p">[(</span><span class="n">dataset</span><span class="o">.</span><span class="n">meal</span> <span class="o">==</span> <span class="s1">&#39;SC&#39;</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">meal</span> <span class="o">==</span> <span class="s1">&#39;Undefined&#39;</span><span class="p">)]</span> <span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/usr/local/lib/python3.6/dist-packages/ipykernel_launcher.py:2: FutureWarning: The pandas.np module is deprecated and will be removed from pandas in a future version. Import numpy directly instead
+  
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -14935,7 +14969,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span>
@@ -14955,38 +14989,38 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>hotel                                41
-is_canceled                          39
-lead_time                            78
-arrival_date_year                     5
-arrival_date_month                   57
-arrival_date_week_number              9
-arrival_date_day_of_month             9
-stays_in_weekend_nights               7
-stays_in_week_nights                  1
-adults                                2
-children                              4
-babies                               40
-meal                                 76
-country                             485
-market_segment                       13
-distribution_channel                114
-is_repeated_guest                    63
-previous_cancellations                5
-previous_bookings_not_canceled        2
-reserved_room_type                    1
-assigned_room_type                    0
-booking_changes                       0
-deposit_type                          9
-agent                             12260
-company                           82584
-days_in_waiting_list                 21
-customer_type                        82
-adr                                   3
-required_car_parking_spaces           0
-total_of_special_requests             0
-reservation_status                   50
-reservation_status_date              24
+<pre>hotel                             10025
+is_canceled                       10026
+lead_time                         10059
+arrival_date_year                  9994
+arrival_date_month                10047
+arrival_date_week_number           9999
+arrival_date_day_of_month          9999
+stays_in_weekend_nights            9996
+stays_in_week_nights               9991
+adults                             9992
+children                           9994
+babies                            10029
+meal                              10066
+country                           10463
+market_segment                    10002
+distribution_channel              10099
+is_repeated_guest                 10042
+previous_cancellations             9995
+previous_bookings_not_canceled     9991
+reserved_room_type                 9991
+assigned_room_type                 9990
+booking_changes                    9990
+deposit_type                       9998
+agent                             21825
+company                           82654
+days_in_waiting_list              10008
+customer_type                     10059
+adr                                9993
+required_car_parking_spaces        9990
+total_of_special_requests          9990
+reservation_status                10037
+reservation_status_date           10011
 dtype: int64
 </pre>
 </div>
@@ -14998,7 +15032,7 @@ dtype: int64
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">shape</span>
@@ -15014,7 +15048,7 @@ dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[49]:</div>
+    <div class="prompt output_prompt">Out[128]:</div>
 
 
 
@@ -15040,7 +15074,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[129]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -15053,7 +15087,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[53]:</div>
+<div class="prompt input_prompt">In&nbsp;[130]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">shape</span>
@@ -15069,13 +15103,13 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[53]:</div>
+    <div class="prompt output_prompt">Out[130]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(186, 32)</pre>
+<pre>(181, 32)</pre>
 </div>
 
 </div>
@@ -15109,7 +15143,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[54]:</div>
+<div class="prompt input_prompt">In&nbsp;[131]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;arrival_date_month&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s2">&quot;Aug&quot;</span><span class="p">:</span> <span class="s2">&quot;August&quot;</span><span class="p">,</span> <span class="s2">&quot;Feb&quot;</span><span class="p">:</span><span class="s2">&quot;February&quot;</span><span class="p">,</span> <span class="s2">&quot;Jan&quot;</span><span class="p">:</span><span class="s2">&quot;January&quot;</span><span class="p">,</span><span class="s2">&quot;Mar&quot;</span><span class="p">:</span><span class="s2">&quot;March&quot;</span><span class="p">,</span><span class="s2">&quot;Dec&quot;</span><span class="p">:</span><span class="s2">&quot;December&quot;</span><span class="p">,</span><span class="s2">&quot;Nov&quot;</span><span class="p">:</span><span class="s2">&quot;November&quot;</span><span class="p">,</span><span class="s2">&quot;Apr&quot;</span><span class="p">:</span><span class="s2">&quot;April&quot;</span><span class="p">,</span><span class="s2">&quot;Jun&quot;</span><span class="p">:</span><span class="s2">&quot;June&quot;</span><span class="p">,</span> 
@@ -15131,7 +15165,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[55]:</div>
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;customer_type&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">({</span><span class="s2">&quot;Transient-Party&quot;</span><span class="p">:</span> <span class="s2">&quot;Transient&quot;</span><span class="p">,},</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -15152,7 +15186,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="prompt input_prompt">In&nbsp;[133]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;days_in_waiting_list&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -15165,7 +15199,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[57]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;required_car_parking_spaces&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -15181,7 +15215,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[57]:</div>
+    <div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 
@@ -15206,7 +15240,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;hotel&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;hotel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
@@ -15237,7 +15271,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[135]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;arrival_date_day_of_month&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -15258,7 +15292,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[136]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;babies&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -15279,7 +15313,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[137]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s2">&quot;hotel&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -15295,7 +15329,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[75]:</div>
+    <div class="prompt output_prompt">Out[137]:</div>
 
 
 
@@ -15312,7 +15346,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[138]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span>
@@ -15328,7 +15362,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[62]:</div>
+    <div class="prompt output_prompt">Out[138]:</div>
 
 
 
@@ -15404,14 +15438,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>e</td>
       <td>e</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>no deposit</td>
       <td>240.0</td>
       <td>113.0</td>
       <td>transient</td>
       <td>82.0</td>
-      <td>1</td>
-      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
       <td>check-out</td>
       <td>2015-10-13</td>
     </tr>
@@ -15436,14 +15470,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>e</td>
       <td>g</td>
-      <td>2</td>
+      <td>2.0</td>
       <td>no deposit</td>
       <td>185.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>52.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-17</td>
     </tr>
@@ -15468,14 +15502,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>no deposit</td>
       <td>334.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>48.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-06</td>
     </tr>
@@ -15500,14 +15534,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>2</td>
+      <td>2.0</td>
       <td>no deposit</td>
       <td>328.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>40.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-15</td>
     </tr>
@@ -15532,14 +15566,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>2</td>
+      <td>2.0</td>
       <td>no deposit</td>
       <td>326.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>48.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-16</td>
     </tr>
@@ -15596,14 +15630,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>no deposit</td>
       <td>9.0</td>
       <td>478.0</td>
       <td>transient</td>
       <td>150.0</td>
-      <td>0</td>
-      <td>1</td>
+      <td>0.0</td>
+      <td>1.0</td>
       <td>check-out</td>
       <td>2017-05-25</td>
     </tr>
@@ -15628,14 +15662,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>no deposit</td>
       <td>290.0</td>
       <td>148.0</td>
       <td>transient</td>
       <td>95.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2017-06-02</td>
     </tr>
@@ -15660,14 +15694,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>no deposit</td>
       <td>290.0</td>
       <td>148.0</td>
       <td>transient</td>
       <td>110.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2017-06-02</td>
     </tr>
@@ -15692,14 +15726,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>d</td>
       <td>d</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>no deposit</td>
       <td>14.0</td>
       <td>229.0</td>
       <td>transient</td>
       <td>135.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2017-06-10</td>
     </tr>
@@ -15724,20 +15758,20 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>d</td>
       <td>d</td>
-      <td>0</td>
+      <td>0.0</td>
       <td>no deposit</td>
       <td>9.0</td>
       <td>421.0</td>
       <td>transient</td>
       <td>120.0</td>
-      <td>0</td>
-      <td>2</td>
+      <td>0.0</td>
+      <td>2.0</td>
       <td>check-out</td>
       <td>2017-07-20</td>
     </tr>
   </tbody>
 </table>
-<p>186 rows × 29 columns</p>
+<p>181 rows × 29 columns</p>
 </div>
 </div>
 
@@ -15749,7 +15783,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[139]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;arrival_date_day_of_month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;reservation_status_date&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">day</span>
@@ -15762,7 +15796,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[140]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;arrival_date_week_number&#39;</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -15775,7 +15809,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[141]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;arrival_date_week_number&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;reservation_status_date&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">week</span>
@@ -15807,7 +15841,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[142]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -15823,7 +15857,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[67]:</div>
+    <div class="prompt output_prompt">Out[142]:</div>
 
 
 
@@ -15899,14 +15933,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>e</td>
       <td>e</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>no deposit</td>
       <td>240.0</td>
       <td>113.0</td>
       <td>transient</td>
       <td>82.0</td>
-      <td>1</td>
-      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
       <td>check-out</td>
       <td>2015-10-13</td>
       <td>13</td>
@@ -15932,14 +15966,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>e</td>
       <td>g</td>
-      <td>2</td>
+      <td>2.0</td>
       <td>no deposit</td>
       <td>185.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>52.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-17</td>
       <td>17</td>
@@ -15965,14 +15999,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>no deposit</td>
       <td>334.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>48.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-06</td>
       <td>6</td>
@@ -15998,14 +16032,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>2</td>
+      <td>2.0</td>
       <td>no deposit</td>
       <td>328.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>40.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-15</td>
       <td>15</td>
@@ -16031,14 +16065,14 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>2</td>
+      <td>2.0</td>
       <td>no deposit</td>
       <td>326.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>48.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-16</td>
       <td>16</td>
@@ -16064,7 +16098,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[143]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -16080,7 +16114,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[28]:</div>
+    <div class="prompt output_prompt">Out[143]:</div>
 
 
 
@@ -16108,7 +16142,6 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <th>lead_time</th>
       <th>arrival_date_year</th>
       <th>arrival_date_month</th>
-      <th>arrival_date_week_number</th>
       <th>stays_in_weekend_nights</th>
       <th>stays_in_week_nights</th>
       <th>adults</th>
@@ -16133,6 +16166,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <th>reservation_status</th>
       <th>reservation_status_date</th>
       <th>arrival_date_day_of_month</th>
+      <th>arrival_date_week_number</th>
     </tr>
   </thead>
   <tbody>
@@ -16143,7 +16177,6 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>6.0</td>
       <td>2015.0</td>
       <td>october</td>
-      <td>42.0</td>
       <td>2.0</td>
       <td>0.0</td>
       <td>2.0</td>
@@ -16157,17 +16190,18 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>e</td>
       <td>e</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>no deposit</td>
       <td>240.0</td>
       <td>113.0</td>
       <td>transient</td>
       <td>82.0</td>
-      <td>1</td>
-      <td>1</td>
+      <td>1.0</td>
+      <td>1.0</td>
       <td>check-out</td>
       <td>2015-10-13</td>
       <td>13</td>
+      <td>42</td>
     </tr>
     <tr>
       <th>2697</th>
@@ -16176,7 +16210,6 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>24.0</td>
       <td>2015.0</td>
       <td>october</td>
-      <td>44.0</td>
       <td>7.0</td>
       <td>15.0</td>
       <td>1.0</td>
@@ -16190,17 +16223,18 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>e</td>
       <td>g</td>
-      <td>2</td>
+      <td>2.0</td>
       <td>no deposit</td>
       <td>185.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>52.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-17</td>
       <td>17</td>
+      <td>47</td>
     </tr>
     <tr>
       <th>2867</th>
@@ -16209,7 +16243,6 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>24.0</td>
       <td>2015.0</td>
       <td>november</td>
-      <td>45.0</td>
       <td>0.0</td>
       <td>3.0</td>
       <td>2.0</td>
@@ -16223,17 +16256,18 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>1</td>
+      <td>1.0</td>
       <td>no deposit</td>
       <td>334.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>48.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-06</td>
       <td>6</td>
+      <td>45</td>
     </tr>
     <tr>
       <th>2877</th>
@@ -16242,7 +16276,6 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>24.0</td>
       <td>2015.0</td>
       <td>november</td>
-      <td>45.0</td>
       <td>2.0</td>
       <td>10.0</td>
       <td>1.0</td>
@@ -16256,17 +16289,18 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>2</td>
+      <td>2.0</td>
       <td>no deposit</td>
       <td>328.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>40.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-15</td>
       <td>15</td>
+      <td>46</td>
     </tr>
     <tr>
       <th>2878</th>
@@ -16275,7 +16309,6 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>24.0</td>
       <td>2015.0</td>
       <td>november</td>
-      <td>45.0</td>
       <td>3.0</td>
       <td>10.0</td>
       <td>2.0</td>
@@ -16289,17 +16322,18 @@ Note that is possible to fill the missing values but in my case I prefer the eas
       <td>0.0</td>
       <td>a</td>
       <td>a</td>
-      <td>2</td>
+      <td>2.0</td>
       <td>no deposit</td>
       <td>326.0</td>
       <td>281.0</td>
       <td>transient</td>
       <td>48.0</td>
-      <td>0</td>
-      <td>0</td>
+      <td>0.0</td>
+      <td>0.0</td>
       <td>check-out</td>
       <td>2015-11-16</td>
       <td>16</td>
+      <td>47</td>
     </tr>
   </tbody>
 </table>
@@ -16314,7 +16348,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[144]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[(</span><span class="n">dataset</span><span class="o">.</span><span class="n">adults</span><span class="o">+</span><span class="n">dataset</span><span class="o">.</span><span class="n">children</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
@@ -16330,7 +16364,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[31]:</div>
+    <div class="prompt output_prompt">Out[144]:</div>
 
 
 
@@ -16355,11 +16389,11 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="prompt input_prompt">In&nbsp;[155]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_year&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_week_nights&#39;</span><span class="p">,</span>
-         <span class="s1">&#39;adults&#39;</span><span class="p">,</span> <span class="s1">&#39;is_repeated_guest&#39;</span><span class="p">,</span><span class="s1">&#39;previous_cancellations&#39;</span><span class="p">,</span><span class="s1">&#39;previous_bookings_not_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;adr&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dtypes</span>
+         <span class="s1">&#39;adults&#39;</span><span class="p">,</span> <span class="s1">&#39;is_repeated_guest&#39;</span><span class="p">,</span><span class="s1">&#39;previous_cancellations&#39;</span><span class="p">,</span><span class="s1">&#39;previous_bookings_not_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;adr&#39;</span><span class="p">,</span><span class="s1">&#39;booking_changes&#39;</span><span class="p">,</span><span class="s1">&#39;required_car_parking_spaces&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 
     </div>
@@ -16372,7 +16406,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[84]:</div>
+    <div class="prompt output_prompt">Out[155]:</div>
 
 
 
@@ -16380,7 +16414,7 @@ Note that is possible to fill the missing values but in my case I prefer the eas
 <div class="output_text output_subarea output_execute_result">
 <pre>children                            int64
 company                             int64
-lead_time                         float64
+lead_time                           int64
 agent                               int64
 is_canceled                         int64
 arrival_date_year                   int64
@@ -16391,6 +16425,8 @@ is_repeated_guest                   int64
 previous_cancellations              int64
 previous_bookings_not_canceled      int64
 adr                                 int64
+booking_changes                     int64
+required_car_parking_spaces       float64
 dtype: object</pre>
 </div>
 
@@ -16402,10 +16438,10 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[85]:</div>
+<div class="prompt input_prompt">In&nbsp;[158]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_year&#39;</span><span class="p">,</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_week_nights&#39;</span><span class="p">,</span><span class="s1">&#39;adults&#39;</span><span class="p">,</span> <span class="s1">&#39;is_repeated_guest&#39;</span><span class="p">,</span><span class="s1">&#39;previous_cancellations&#39;</span><span class="p">,</span><span class="s1">&#39;previous_bookings_not_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;adr&#39;</span><span class="p">]]</span><span class="o">=</span> <span class="n">dataset</span><span class="p">[[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_year&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">,</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_week_nights&#39;</span><span class="p">,</span><span class="s1">&#39;adults&#39;</span><span class="p">,</span> <span class="s1">&#39;is_repeated_guest&#39;</span><span class="p">,</span><span class="s1">&#39;previous_cancellations&#39;</span><span class="p">,</span><span class="s1">&#39;previous_bookings_not_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;adr&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_year&#39;</span><span class="p">,</span><span class="s1">&#39;required_car_parking_spaces&#39;</span><span class="p">,</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_week_nights&#39;</span><span class="p">,</span><span class="s1">&#39;booking_changes&#39;</span><span class="p">,</span><span class="s1">&#39;adults&#39;</span><span class="p">,</span> <span class="s1">&#39;is_repeated_guest&#39;</span><span class="p">,</span><span class="s1">&#39;previous_cancellations&#39;</span><span class="p">,</span><span class="s1">&#39;previous_bookings_not_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;total_of_special_requests&#39;</span><span class="p">,</span><span class="s1">&#39;adr&#39;</span><span class="p">]]</span><span class="o">=</span> <span class="n">dataset</span><span class="p">[[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span><span class="s1">&#39;total_of_special_requests&#39;</span><span class="p">,</span><span class="s1">&#39;booking_changes&#39;</span><span class="p">,</span> <span class="s1">&#39;required_car_parking_spaces&#39;</span><span class="p">,</span><span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_year&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">,</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_week_nights&#39;</span><span class="p">,</span><span class="s1">&#39;adults&#39;</span><span class="p">,</span> <span class="s1">&#39;is_repeated_guest&#39;</span><span class="p">,</span><span class="s1">&#39;previous_cancellations&#39;</span><span class="p">,</span><span class="s1">&#39;previous_bookings_not_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;adr&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;int64&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -16423,7 +16459,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="prompt input_prompt">In&nbsp;[159]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">dtypes</span>
@@ -16439,42 +16475,41 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[86]:</div>
+    <div class="prompt output_prompt">Out[159]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>hotel                                     object
-is_canceled                                int64
-lead_time                                  int64
-arrival_date_year                          int64
-arrival_date_month                        object
-stays_in_weekend_nights                    int64
-stays_in_week_nights                       int64
-adults                                     int64
-children                                   int64
-meal                                      object
-country                                   object
-market_segment                            object
-distribution_channel                      object
-is_repeated_guest                          int64
-previous_cancellations                     int64
-previous_bookings_not_canceled             int64
-reserved_room_type                        object
-assigned_room_type                        object
-booking_changes                            int64
-deposit_type                              object
-agent                                      int64
-company                                    int64
-customer_type                             object
-adr                                        int64
-required_car_parking_spaces                int64
-total_of_special_requests                  int64
-reservation_status                        object
-reservation_status_date           datetime64[ns]
-arrival_date_day_of_month                  int64
-arrival_date_week_number                   int64
+<pre>hotel                             object
+is_canceled                        int64
+lead_time                          int64
+arrival_date_year                  int64
+arrival_date_month                object
+stays_in_weekend_nights            int64
+stays_in_week_nights               int64
+adults                             int64
+children                           int64
+meal                              object
+country                           object
+market_segment                    object
+distribution_channel              object
+is_repeated_guest                  int64
+previous_cancellations             int64
+previous_bookings_not_canceled     int64
+reserved_room_type                object
+assigned_room_type                object
+booking_changes                    int64
+deposit_type                      object
+agent                              int64
+company                            int64
+customer_type                     object
+adr                                int64
+required_car_parking_spaces        int64
+total_of_special_requests          int64
+reservation_status                object
+arrival_date_day_of_month          int64
+arrival_date_week_number           int64
 dtype: object</pre>
 </div>
 
@@ -16495,7 +16530,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">adr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
@@ -16511,7 +16546,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[91]:</div>
+    <div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 
@@ -16536,7 +16571,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[93]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dataset</span><span class="p">[</span><span class="n">dataset</span><span class="o">.</span><span class="n">adr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
@@ -16549,7 +16584,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">country</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -16565,7 +16600,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[94]:</div>
+    <div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 
@@ -16592,7 +16627,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -16608,7 +16643,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[98]:</div>
+    <div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 
@@ -16628,7 +16663,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[102]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[</span><span class="s1">&#39;market_segment&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
@@ -16644,7 +16679,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[102]:</div>
+    <div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 
@@ -16662,7 +16697,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[(</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_week_nights</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_weekend_nights</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)]</span><span class="o">.</span><span class="n">shape</span>
@@ -16678,7 +16713,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[107]:</div>
+    <div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 
@@ -16703,7 +16738,7 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[111]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="p">[((</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_week_nights</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_weekend_nights</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">((</span><span class="n">dataset</span><span class="o">.</span><span class="n">reservation_status</span><span class="o">==</span><span class="s1">&#39;canceled&#39;</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">reservation_status</span><span class="o">==</span><span class="s1">&#39;no-show&#39;</span><span class="p">))]</span><span class="o">.</span><span class="n">shape</span>
@@ -16719,7 +16754,7 @@ dtype: object</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[111]:</div>
+    <div class="prompt output_prompt">Out[&nbsp;]:</div>
 
 
 
@@ -16744,13 +16779,783 @@ dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[112]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">dataset</span><span class="p">[((</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_week_nights</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">stays_in_weekend_nights</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">))</span> <span class="o">&amp;</span> <span class="p">((</span><span class="n">dataset</span><span class="o">.</span><span class="n">reservation_status</span><span class="o">==</span><span class="s1">&#39;canceled&#39;</span><span class="p">)</span><span class="o">|</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">reservation_status</span><span class="o">==</span><span class="s1">&#39;no-show&#39;</span><span class="p">))]</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[149]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;reservation_status_date&#39;</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[160]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[160]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>hotel                             object
+is_canceled                        int64
+lead_time                          int64
+arrival_date_year                  int64
+arrival_date_month                object
+stays_in_weekend_nights            int64
+stays_in_week_nights               int64
+adults                             int64
+children                           int64
+meal                              object
+country                           object
+market_segment                    object
+distribution_channel              object
+is_repeated_guest                  int64
+previous_cancellations             int64
+previous_bookings_not_canceled     int64
+reserved_room_type                object
+assigned_room_type                object
+booking_changes                    int64
+deposit_type                      object
+agent                              int64
+company                            int64
+customer_type                     object
+adr                                int64
+required_car_parking_spaces        int64
+total_of_special_requests          int64
+reservation_status                object
+arrival_date_day_of_month          int64
+arrival_date_week_number           int64
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[161]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[161]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hotel</th>
+      <th>is_canceled</th>
+      <th>lead_time</th>
+      <th>arrival_date_year</th>
+      <th>arrival_date_month</th>
+      <th>stays_in_weekend_nights</th>
+      <th>stays_in_week_nights</th>
+      <th>adults</th>
+      <th>children</th>
+      <th>meal</th>
+      <th>country</th>
+      <th>market_segment</th>
+      <th>distribution_channel</th>
+      <th>is_repeated_guest</th>
+      <th>previous_cancellations</th>
+      <th>previous_bookings_not_canceled</th>
+      <th>reserved_room_type</th>
+      <th>assigned_room_type</th>
+      <th>booking_changes</th>
+      <th>deposit_type</th>
+      <th>agent</th>
+      <th>company</th>
+      <th>customer_type</th>
+      <th>adr</th>
+      <th>required_car_parking_spaces</th>
+      <th>total_of_special_requests</th>
+      <th>reservation_status</th>
+      <th>arrival_date_day_of_month</th>
+      <th>arrival_date_week_number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2392</th>
+      <td>resort hotel</td>
+      <td>240</td>
+      <td>1</td>
+      <td>0</td>
+      <td>october</td>
+      <td>113</td>
+      <td>6</td>
+      <td>2015</td>
+      <td>0</td>
+      <td>bb</td>
+      <td>prt</td>
+      <td>online ta</td>
+      <td>ta/to</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>e</td>
+      <td>e</td>
+      <td>0</td>
+      <td>no deposit</td>
+      <td>2</td>
+      <td>1</td>
+      <td>transient</td>
+      <td>82</td>
+      <td>1</td>
+      <td>0</td>
+      <td>check-out</td>
+      <td>13</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>2697</th>
+      <td>resort hotel</td>
+      <td>185</td>
+      <td>2</td>
+      <td>15</td>
+      <td>october</td>
+      <td>281</td>
+      <td>24</td>
+      <td>2015</td>
+      <td>0</td>
+      <td>bb</td>
+      <td>aut</td>
+      <td>corporate</td>
+      <td>corporate</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>e</td>
+      <td>g</td>
+      <td>0</td>
+      <td>no deposit</td>
+      <td>7</td>
+      <td>0</td>
+      <td>transient</td>
+      <td>52</td>
+      <td>0</td>
+      <td>0</td>
+      <td>check-out</td>
+      <td>17</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>2867</th>
+      <td>resort hotel</td>
+      <td>334</td>
+      <td>1</td>
+      <td>3</td>
+      <td>november</td>
+      <td>281</td>
+      <td>24</td>
+      <td>2015</td>
+      <td>0</td>
+      <td>bb</td>
+      <td>esp</td>
+      <td>corporate</td>
+      <td>corporate</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>a</td>
+      <td>a</td>
+      <td>0</td>
+      <td>no deposit</td>
+      <td>0</td>
+      <td>0</td>
+      <td>transient</td>
+      <td>48</td>
+      <td>0</td>
+      <td>0</td>
+      <td>check-out</td>
+      <td>6</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2877</th>
+      <td>resort hotel</td>
+      <td>328</td>
+      <td>2</td>
+      <td>10</td>
+      <td>november</td>
+      <td>281</td>
+      <td>24</td>
+      <td>2015</td>
+      <td>0</td>
+      <td>bb</td>
+      <td>prt</td>
+      <td>corporate</td>
+      <td>corporate</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>a</td>
+      <td>a</td>
+      <td>0</td>
+      <td>no deposit</td>
+      <td>2</td>
+      <td>0</td>
+      <td>transient</td>
+      <td>40</td>
+      <td>0</td>
+      <td>0</td>
+      <td>check-out</td>
+      <td>15</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>2878</th>
+      <td>resort hotel</td>
+      <td>326</td>
+      <td>2</td>
+      <td>10</td>
+      <td>november</td>
+      <td>281</td>
+      <td>24</td>
+      <td>2015</td>
+      <td>0</td>
+      <td>bb</td>
+      <td>ita</td>
+      <td>corporate</td>
+      <td>corporate</td>
+      <td>2</td>
+      <td>0</td>
+      <td>0</td>
+      <td>a</td>
+      <td>a</td>
+      <td>0</td>
+      <td>no deposit</td>
+      <td>3</td>
+      <td>0</td>
+      <td>transient</td>
+      <td>48</td>
+      <td>0</td>
+      <td>0</td>
+      <td>check-out</td>
+      <td>16</td>
+      <td>47</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[166]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">dataset</span><span class="p">[[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_year&#39;</span><span class="p">,</span><span class="s1">&#39;required_car_parking_spaces&#39;</span><span class="p">,</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_week_nights&#39;</span><span class="p">,</span><span class="s1">&#39;booking_changes&#39;</span><span class="p">,</span><span class="s1">&#39;adults&#39;</span><span class="p">,</span> <span class="s1">&#39;is_repeated_guest&#39;</span><span class="p">,</span><span class="s1">&#39;previous_cancellations&#39;</span><span class="p">,</span><span class="s1">&#39;previous_bookings_not_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;total_of_special_requests&#39;</span><span class="p">,</span><span class="s1">&#39;adr&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dataset</span><span class="p">[[</span><span class="s1">&#39;children&#39;</span><span class="p">,</span> <span class="s1">&#39;company&#39;</span><span class="p">,</span> <span class="s1">&#39;agent&#39;</span><span class="p">,</span><span class="s1">&#39;is_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;arrival_date_year&#39;</span><span class="p">,</span><span class="s1">&#39;required_car_parking_spaces&#39;</span><span class="p">,</span><span class="s1">&#39;lead_time&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_weekend_nights&#39;</span><span class="p">,</span><span class="s1">&#39;stays_in_week_nights&#39;</span><span class="p">,</span><span class="s1">&#39;booking_changes&#39;</span><span class="p">,</span><span class="s1">&#39;adults&#39;</span><span class="p">,</span> <span class="s1">&#39;is_repeated_guest&#39;</span><span class="p">,</span><span class="s1">&#39;previous_cancellations&#39;</span><span class="p">,</span><span class="s1">&#39;previous_bookings_not_canceled&#39;</span><span class="p">,</span><span class="s1">&#39;total_of_special_requests&#39;</span><span class="p">,</span><span class="s1">&#39;adr&#39;</span><span class="p">]])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[167]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">dataset</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[167]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>hotel</th>
+      <th>is_canceled</th>
+      <th>lead_time</th>
+      <th>arrival_date_year</th>
+      <th>arrival_date_month</th>
+      <th>stays_in_weekend_nights</th>
+      <th>stays_in_week_nights</th>
+      <th>adults</th>
+      <th>children</th>
+      <th>meal</th>
+      <th>country</th>
+      <th>market_segment</th>
+      <th>distribution_channel</th>
+      <th>is_repeated_guest</th>
+      <th>previous_cancellations</th>
+      <th>previous_bookings_not_canceled</th>
+      <th>reserved_room_type</th>
+      <th>assigned_room_type</th>
+      <th>booking_changes</th>
+      <th>deposit_type</th>
+      <th>agent</th>
+      <th>company</th>
+      <th>customer_type</th>
+      <th>adr</th>
+      <th>required_car_parking_spaces</th>
+      <th>total_of_special_requests</th>
+      <th>reservation_status</th>
+      <th>arrival_date_day_of_month</th>
+      <th>arrival_date_week_number</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2392</th>
+      <td>resort hotel</td>
+      <td>0.535308</td>
+      <td>0.166667</td>
+      <td>0.000000</td>
+      <td>october</td>
+      <td>0.212245</td>
+      <td>0.016484</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>bb</td>
+      <td>prt</td>
+      <td>online ta</td>
+      <td>ta/to</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>e</td>
+      <td>e</td>
+      <td>0.0</td>
+      <td>no deposit</td>
+      <td>0.285714</td>
+      <td>0.333333</td>
+      <td>transient</td>
+      <td>0.333333</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>check-out</td>
+      <td>13</td>
+      <td>42</td>
+    </tr>
+    <tr>
+      <th>2697</th>
+      <td>resort hotel</td>
+      <td>0.410023</td>
+      <td>0.333333</td>
+      <td>1.000000</td>
+      <td>october</td>
+      <td>0.555102</td>
+      <td>0.065934</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>bb</td>
+      <td>aut</td>
+      <td>corporate</td>
+      <td>corporate</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>e</td>
+      <td>g</td>
+      <td>0.0</td>
+      <td>no deposit</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>transient</td>
+      <td>0.211382</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>check-out</td>
+      <td>17</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>2867</th>
+      <td>resort hotel</td>
+      <td>0.749431</td>
+      <td>0.166667</td>
+      <td>0.200000</td>
+      <td>november</td>
+      <td>0.555102</td>
+      <td>0.065934</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>bb</td>
+      <td>esp</td>
+      <td>corporate</td>
+      <td>corporate</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>a</td>
+      <td>a</td>
+      <td>0.0</td>
+      <td>no deposit</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>transient</td>
+      <td>0.195122</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>check-out</td>
+      <td>6</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>2877</th>
+      <td>resort hotel</td>
+      <td>0.735763</td>
+      <td>0.333333</td>
+      <td>0.666667</td>
+      <td>november</td>
+      <td>0.555102</td>
+      <td>0.065934</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>bb</td>
+      <td>prt</td>
+      <td>corporate</td>
+      <td>corporate</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>a</td>
+      <td>a</td>
+      <td>0.0</td>
+      <td>no deposit</td>
+      <td>0.285714</td>
+      <td>0.000000</td>
+      <td>transient</td>
+      <td>0.162602</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>check-out</td>
+      <td>15</td>
+      <td>46</td>
+    </tr>
+    <tr>
+      <th>2878</th>
+      <td>resort hotel</td>
+      <td>0.731207</td>
+      <td>0.333333</td>
+      <td>0.666667</td>
+      <td>november</td>
+      <td>0.555102</td>
+      <td>0.065934</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>bb</td>
+      <td>ita</td>
+      <td>corporate</td>
+      <td>corporate</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>a</td>
+      <td>a</td>
+      <td>0.0</td>
+      <td>no deposit</td>
+      <td>0.428571</td>
+      <td>0.000000</td>
+      <td>transient</td>
+      <td>0.195122</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>check-out</td>
+      <td>16</td>
+      <td>47</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>112508</th>
+      <td>city hotel</td>
+      <td>0.009112</td>
+      <td>0.000000</td>
+      <td>0.066667</td>
+      <td>may</td>
+      <td>0.957143</td>
+      <td>0.035714</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>bb</td>
+      <td>chn</td>
+      <td>online ta</td>
+      <td>ta/to</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>a</td>
+      <td>a</td>
+      <td>0.0</td>
+      <td>no deposit</td>
+      <td>0.000000</td>
+      <td>0.333333</td>
+      <td>transient</td>
+      <td>0.609756</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>check-out</td>
+      <td>25</td>
+      <td>21</td>
+    </tr>
+    <tr>
+      <th>113055</th>
+      <td>city hotel</td>
+      <td>0.649203</td>
+      <td>0.166667</td>
+      <td>0.200000</td>
+      <td>may</td>
+      <td>0.283673</td>
+      <td>0.035714</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>bb</td>
+      <td>ita</td>
+      <td>offline ta/to</td>
+      <td>ta/to</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>a</td>
+      <td>a</td>
+      <td>0.0</td>
+      <td>no deposit</td>
+      <td>0.142857</td>
+      <td>0.000000</td>
+      <td>transient</td>
+      <td>0.386179</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>check-out</td>
+      <td>2</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>113091</th>
+      <td>city hotel</td>
+      <td>0.649203</td>
+      <td>0.166667</td>
+      <td>0.200000</td>
+      <td>may</td>
+      <td>0.283673</td>
+      <td>0.035714</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>bb</td>
+      <td>ita</td>
+      <td>offline ta/to</td>
+      <td>ta/to</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>a</td>
+      <td>a</td>
+      <td>0.0</td>
+      <td>no deposit</td>
+      <td>0.142857</td>
+      <td>0.000000</td>
+      <td>transient</td>
+      <td>0.447154</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>check-out</td>
+      <td>2</td>
+      <td>22</td>
+    </tr>
+    <tr>
+      <th>113636</th>
+      <td>city hotel</td>
+      <td>0.020501</td>
+      <td>0.000000</td>
+      <td>0.066667</td>
+      <td>june</td>
+      <td>0.448980</td>
+      <td>0.576923</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>bb</td>
+      <td>gbr</td>
+      <td>direct</td>
+      <td>direct</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>d</td>
+      <td>d</td>
+      <td>0.0</td>
+      <td>no deposit</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>transient</td>
+      <td>0.548780</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>check-out</td>
+      <td>10</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>116460</th>
+      <td>city hotel</td>
+      <td>0.009112</td>
+      <td>0.000000</td>
+      <td>0.133333</td>
+      <td>july</td>
+      <td>0.840816</td>
+      <td>0.524725</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>bb</td>
+      <td>prt</td>
+      <td>online ta</td>
+      <td>ta/to</td>
+      <td>0.5</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>d</td>
+      <td>d</td>
+      <td>0.0</td>
+      <td>no deposit</td>
+      <td>0.285714</td>
+      <td>0.666667</td>
+      <td>transient</td>
+      <td>0.487805</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>check-out</td>
+      <td>20</td>
+      <td>29</td>
+    </tr>
+  </tbody>
+</table>
+<p>181 rows × 29 columns</p>
+</div>
+</div>
+
+</div>
+
 </div>
 </div>
 
